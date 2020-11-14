@@ -1,8 +1,10 @@
+// Components
+import WeatherContainer from "./components/WeatherContainer"
 
 function App() {
   return (
     <div className="App">
-      <h1>React Redux Weather App</h1>
+      <WeatherContainer/>
     </div>
   );
 }
