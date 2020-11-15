@@ -1,0 +1,3 @@
+Find a way to only set city after all the data is set and submitted.
+Input should not search until submit.
+Submit should be logged.

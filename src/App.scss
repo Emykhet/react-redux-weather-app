@@ -1,3 +1,9 @@
+@mixin placeholder {
+    color: #c4c3c3;
+    font-size: .8rem;
+    letter-spacing: .5px;
+}
+
 // Normalize
 *{
     margin: 0;
@@ -7,10 +13,11 @@
 body{
     color: #fafbfd;
     font-family: 'Roboto', sans-serif;
-    // background-image: url("./images/bg-1.jpg");
-    background-color: rgb(96, 106, 107);
+    background-image: url("https://images.pexels.com/photos/5603830/pexels-photo-5603830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
-    transition: all 1s ease;
 }
 
 .App{
@@ -26,11 +33,24 @@ p{
     letter-spacing: .5px;
 }
 
-@import "./styles//weatherContainer";
+::-webkit-input-placeholder{
+    @include placeholder;
+}
+::-moz-placeholder{
+    @include placeholder;
+}
+::placeholder{
+    @include placeholder;
+}
 
 
+// responsive styles
 @media screen and (max-width: 768px) {
     .App{
         height: 100vh;
     }
 }
+
+
+// import styles
+@import "./styles//weatherContainer";
