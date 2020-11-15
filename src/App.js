@@ -1,11 +1,13 @@
 // Components
 import WeatherContainer from "./components/WeatherContainer"
 
+// Styling
+import "./App.scss"
+
+
 function App() {
   return (
-    <div className="App">
-      <WeatherContainer/>
-    </div>
+      <WeatherContainer className="App"/>
   );
 }
 

@@ -1,0 +1,36 @@
+// Normalize
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color: #fafbfd;
+    font-family: 'Roboto', sans-serif;
+    // background-image: url("./images/bg-1.jpg");
+    background-color: rgb(96, 106, 107);
+    background-size: cover;
+    transition: all 1s ease;
+}
+
+.App{
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6{
+    letter-spacing: .10px;
+}
+
+p{
+    word-spacing: 1px;
+    letter-spacing: .5px;
+}
+
+@import "./styles//weatherContainer";
+
+
+@media screen and (max-width: 768px) {
+    .App{
+        height: 100vh;
+    }
+}
