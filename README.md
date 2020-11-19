@@ -1,5 +1,7 @@
 # React Redux Weather App
 
+Final project available here: https://emykhet-react-weather-app.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
