@@ -1,3 +1,9 @@
+@mixin flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .weather-container{
     display: flex;
     flex-direction: column;
@@ -33,8 +39,7 @@ button{
     cursor: pointer;
     background: transparent;
     outline: none;
-
-   
+    
     .fa-search{
  
         color: #fafbfd; ;
@@ -42,15 +47,12 @@ button{
            color: #e0e0e0; 
          }
     }
-
 }
 
 .weather-display{
     height: 80vh;
-    display: flex;
+    @include flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     transition: all 1s ease ;
 }
 
@@ -62,21 +64,12 @@ button{
 }
 
 .temp-main-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     flex-direction: column;
     margin-right: 4rem;
 }
 
-.temp-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.temp-high-low{
+.temp-info, .temp-high-low{
     display: flex;
     justify-content: space-between;
     align-items: center;

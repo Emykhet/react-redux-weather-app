@@ -1,6 +1,7 @@
 import {
     FETCH_WEATHER_SUCCESS,
-    FETCH_WEATHER_FAIL
+    FETCH_WEATHER_FAIL,
+    FETCH_WEATHER_REQUEST
  }from "./actionTypes"
 
 import axios from "axios"
@@ -10,9 +11,10 @@ const APIkey = process.env.REACT_APP_WEATHER_API_KEY
 
 // city from weather action set to API
 export const fetchWeatherAction = (city) => async(dispatch) =>{
+    dispatch({type: FETCH_WEATHER_REQUEST})
+
   try{
     const {data} = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&&units=metric&appid=${APIkey}`)
-
     dispatch({
         type: FETCH_WEATHER_SUCCESS,
         payload: {

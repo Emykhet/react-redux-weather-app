@@ -1,54 +1,57 @@
 import React, { useState, useEffect } from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {fetchWeatherAction } from "../actions/weatherActions"
+import { fetchWeatherAction } from "../actions/weatherActions"
 
 const WeatherContainer = () => {
-    const inputRef = React.useRef() // grabs input element value
+    const inputRef = React.useRef() // grabs value from input element
     const [city, setCity] = useState()
     const [time, setTime] = useState({})
-    console.log("WeatherContainer.js__City ", city)
+    const [submitted, setSubmitted] = useState(false) // if submit button is activated
 
-// set time on load
-    useEffect(()=>{
-        const today = new Date()
-        setTime({
-            month: today.getMonth(),
-            date: today.getDate(),
-            day: today.getDay(),
-            hour: today.getHours(),
-            minute: today.getMinutes()
-        })
-    }, [])
+    const updateTime = ()=>{
+        setInterval(() => { 
+            const today = new Date()
+            let hour = today.getHours()
+            hour = ("0" + hour).slice(-2);
+            let minutes = today.getMinutes()
+            minutes = ("0" + minutes).slice(-2);
+            setTime({
+                hour: hour,
+                minute: minutes
+            }) }, 1000);
+    }
 
 // set dispatch
     const dispatch = useDispatch()
 
+// set time on load
+    useEffect(()=>{
+        updateTime()
+    }, [])
+
 // get weather state 
     const weather = useSelector(state => state.weather)
-    const {fetchedWeather, errorFetchingWeather} = weather
-
-    // **********************************************
+    const {fetchedWeather, errorFetchingWeather, loading} = weather
 
 // set user input as City
     const inputCityHandler = (e) =>{
+        const value = e.target.value
         e.persist()
-        setCity(e.target.value)
+        setCity(value)
     }
 
 // on submit dispatch city to weather action function imported form weatherActions.js
     const dispatchCityHandler = (e) => {
         e.preventDefault()
         dispatch(fetchWeatherAction(city))
-        // clear input field after submit
-        inputRef.current.value = ""
+        setSubmitted(true)
+        inputRef.current.value = "" // clear input field after submit
     }
-// round temp
+// round temperature to the nearest whole number
     const roundTemp = (temp) =>{
         return Math.round(temp);
     }
 
-
-    // **********************************************
     return (
         <div className="weather-container">
             <form onSubmit={(e) => dispatchCityHandler(e)} className="search-display" action="">
@@ -64,8 +67,8 @@ const WeatherContainer = () => {
                 placeholder="weather in your city"/> 
                 </label>
             </form>
-                
-    {city && fetchedWeather ? (
+
+    { city && fetchedWeather && submitted ? (
     <div className="weather-display">
     <div className="temp-location">
         <h2 className="temp-city">{fetchedWeather.city}</h2>
@@ -86,19 +89,18 @@ const WeatherContainer = () => {
 </div>
 ): errorFetchingWeather ? (
     <div className="weather-display">
-        <div className="temp-location">
-<h2 className="temp-city">{errorFetchingWeather}</h2>   
+        <div className="temp-location">    
+            <h2 className="temp-city">{errorFetchingWeather}</h2>   
         </div>   
     </div>
-): (
-        <h2 className="temp-city">{time.hour} : {time.minute}</h2>
+):(
+    <h2 className="temp-city">{time.hour} : {time.minute}</h2>
 )}
-        </div>
+    </div>
     )
 }
 
 export default WeatherContainer
-
 
 
 

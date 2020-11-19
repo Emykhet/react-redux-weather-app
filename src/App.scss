@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     color: #fafbfd;
     font-family: 'Roboto', sans-serif;
@@ -44,13 +45,5 @@ p{
 }
 
 
-// responsive styles
-@media screen and (max-width: 768px) {
-    .App{
-        height: 100vh;
-    }
-}
-
-
-// import styles
+// partial styles
 @import "./styles//weatherContainer";
