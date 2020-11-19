@@ -14,7 +14,9 @@
 body{
     color: #fafbfd;
     font-family: 'Roboto', sans-serif;
-    background-image: url("https://images.pexels.com/photos/5603830/pexels-photo-5603830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-image:  radial-gradient(circle, rgba(0, 0, 0, 0.664), rgba(48, 48, 48, 0.356), rgba(255, 255, 255, 0.185)), 
+    url("https://images.pexels.com/photos/5603830/pexels-photo-5603830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
