@@ -6,7 +6,7 @@ import {
 
 import axios from "axios"
 
-// secured variables via .env file
+// secured variables via .env
 const APIkey = process.env.REACT_APP_WEATHER_API_KEY
 
 // city from weather action set to API
