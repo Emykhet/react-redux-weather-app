@@ -14,7 +14,7 @@ export const fetchWeatherAction = (city) => async(dispatch) =>{
     dispatch({type: FETCH_WEATHER_REQUEST})
 
   try{
-    const {data} = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&&units=metric&appid=${APIkey}`)
+    const {data} = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&&units=metric&appid=${APIkey}`)
     dispatch({
         type: FETCH_WEATHER_SUCCESS,
         payload: {
