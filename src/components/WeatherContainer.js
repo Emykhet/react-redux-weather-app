@@ -68,7 +68,7 @@ const WeatherContainer = () => {
                 placeholder="weather in your city"/> 
                 </label>
             </form>
-            <h2 className="time">{time.hour} : {time.minute}</h2>
+            <h2 className="time">Time: {time.hour} : {time.minute}</h2>
             </div>
     { city && fetchedWeather && submitted ? (
     <div className="weather-display">

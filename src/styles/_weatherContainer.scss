@@ -47,13 +47,14 @@ button{
 }
 
 .time{
-    opacity: .85;
+    opacity: .6;
     font-size: 1.2rem;
+    font-weight: 100;
 }
 
 .weather-display{
     // position: absolute;
-    height: 100vh;
+    height: 90vh;
     @include flex;
     // flex-direction: row;
     transition: all 1s ease ;
@@ -68,7 +69,6 @@ button{
 .temp-main-info{
     @include flex;
     flex-direction: column;
-    margin-right: 4rem;
 }
 
 .temp-info, .temp-high-low{
@@ -79,8 +79,7 @@ button{
 
 
 .temp-city, .temp-country{
-    text-align: center;
-    margin-right: 1rem;
+    padding: 0 2rem;
 }
 
 .temp-low, .temp-high{
@@ -109,7 +108,7 @@ button{
 @media screen and (max-width: 900px) {
     .weather-display{
     width: 0 auto;
-    height: 90vh;
+    height: 85vh;
     @include flex;
     transition: all 1s ease ;
     }
@@ -129,7 +128,7 @@ button{
     }
 
     .time{
-        display: none;
+        padding-top: 2rem;
     }
 
 }
