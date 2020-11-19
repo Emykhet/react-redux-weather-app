@@ -54,7 +54,8 @@ const WeatherContainer = () => {
 
     return (
         <div className="weather-container">
-            <form onSubmit={(e) => dispatchCityHandler(e)} className="search-display" action="">
+            <div className="time-input">
+                <form className="form" onSubmit={(e) => dispatchCityHandler(e)} className="search-display" action="">
                  <button className="search-btn" type="submit"><i className="fas fa-search"></i></button>
                <label htmlFor="city">
                 <input
@@ -67,14 +68,17 @@ const WeatherContainer = () => {
                 placeholder="weather in your city"/> 
                 </label>
             </form>
-
+            <h2 className="time">{time.hour} : {time.minute}</h2>
+            </div>
     { city && fetchedWeather && submitted ? (
     <div className="weather-display">
-    <div className="temp-location">
-        <h2 className="temp-city">{fetchedWeather.city}</h2>
-        <h2 className="temp-country">{fetchedWeather.country}</h2>
-    </div>  
+   
     <div className="temp-main-info">
+    
+        <div className="temp-location">
+            <h2 className="temp-city">{fetchedWeather.city}</h2>
+            <h2 className="temp-country">{fetchedWeather.country}</h2>
+        </div> 
         <div className="temp-info">
         <img src={`http://openweathermap.org/img/wn/${fetchedWeather.icon}@2x.png`} alt="" className="temp-icon"/>
         <h1 className="temp">{roundTemp(fetchedWeather.temp)}° C</h1>
@@ -94,7 +98,7 @@ const WeatherContainer = () => {
         </div>   
     </div>
 ):(
-    <h2 className="temp-city">{time.hour} : {time.minute}</h2>
+    <h2 className="time"></h2>
 )}
     </div>
     )
